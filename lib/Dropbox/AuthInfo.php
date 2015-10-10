@@ -63,21 +63,11 @@ final class AuthInfo
             throw new AuthInfoLoadException("Expecting field \"access_token\" to be a string");
         }
 
-        // Check for the optional 'host' field
-        if (!array_key_exists('host', $jsonArr)) {
-            $host = null;
+        try {
+            $host = Host::loadFromJson($jsonArr);
         }
-        else {
-            $baseHost = $jsonArr["host"];
-            if (!is_string($baseHost)) {
-                throw new AuthInfoLoadException("Optional field \"host\" must be a string");
-            }
-
-            $api = "api-$baseHost";
-            $content = "api-content-$baseHost";
-            $web = "meta-$baseHost";
-
-            $host = new Host($api, $content, $web);
+        catch (HostLoadException $ex) {
+            throw new AuthInfoLoadException($ex->getMessage());
         }
 
         return array($accessToken, $host);

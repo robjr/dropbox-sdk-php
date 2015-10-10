@@ -54,8 +54,11 @@ $authArr = array(
     "access_token" => $accessToken,
 );
 
-if (array_key_exists('host', $appInfoJson)) {
-    $authArr['host'] = $appInfoJson['host'];
+if (array_key_exists('auth_host', $appInfoJson)) {
+    $authArr['auth_host'] = $appInfoJson['auth_host'];
+}
+if (array_key_exists('host_suffix', $appInfoJson)) {
+    $authArr['host_suffix'] = $appInfoJson['host_suffix'];
 }
 
 $json_options = 0;
