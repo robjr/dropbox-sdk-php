@@ -16,7 +16,7 @@ final class AuthInfo
      * @param string $path
      *    Path to a JSON file
      * @return array
-     *    A <code>list(string $accessToken, Host $host)</code>.
+     *    A `list(string $accessToken, Host $host)`.
      *
      * @throws AuthInfoLoadException
      */
@@ -43,7 +43,7 @@ final class AuthInfo
      * @param array $jsonArr
      *    A parsed JSON object, typcally the result of json_decode(..., true).
      * @return array
-     *    A <code>list(string $accessToken, Host $host)</code>.
+     *    A `list(string $accessToken, Host $host)`.
      *
      * @throws AuthInfoLoadException
      */

@@ -179,7 +179,7 @@ final class AppInfo
     }
 
     /**
-     * Use this to check that a function argument is of type <code>AppInfo</code>
+     * Use this to check that a function argument is of type `AppInfo`
      *
      * @internal
      */
@@ -189,8 +189,8 @@ final class AppInfo
     }
 
     /**
-     * Use this to check that a function argument is either <code>null</code> or of type
-     * <code>AppInfo</code>.
+     * Use this to check that a function argument is either `null` or of type
+     * `AppInfo`.
      *
      * @internal
      */

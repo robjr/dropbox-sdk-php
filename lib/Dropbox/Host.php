@@ -76,7 +76,7 @@ final class Host
     function getWeb() { return $this->web; }
 
     /**
-     * Check that a function argument is of type <code>Host</code>.
+     * Check that a function argument is of type `Host`.
      *
      * @internal
      */
@@ -86,8 +86,8 @@ final class Host
     }
 
     /**
-     * Check that a function argument is either <code>null</code> or of type
-     * <code>Host</code>.
+     * Check that a function argument is either `null` or of type
+     * `Host`.
      *
      * @internal
      */
@@ -99,7 +99,7 @@ final class Host
 
     /**
      * Loads a Host object from the 'auth_host' and 'host_suffix' fields of a JSON object.
-     * If those fields aren't present, return <code>null</code>.
+     * If those fields aren't present, return `null`.
      *
      * @return Host|null
      *

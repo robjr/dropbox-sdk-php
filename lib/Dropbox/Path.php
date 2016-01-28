@@ -23,7 +23,7 @@ final class Path
 
     /**
      * Return whether the given path is a valid non-root Dropbox path.
-     * This is the same as {@link isValid} except <code>"/"</code> is not allowed.
+     * This is the same as {@link isValid} except `"/"` is not allowed.
      *
      * @param string $path
      *    The path you want to check for validity.
@@ -38,14 +38,14 @@ final class Path
     }
 
     /**
-     * If the given path is a valid Dropbox path, return <code>null</code>,
+     * If the given path is a valid Dropbox path, return `null`,
      * otherwise return an English string error message describing what is wrong with the path.
      *
      * @param string $path
      *    The path you want to check for validity.
      *
      * @return string|null
-     *    If the path was valid, return <code>null</code>.  Otherwise, returns
+     *    If the path was valid, return `null`.  Otherwise, returns
      *    an English string describing the problem.
      */
     static function findError($path)
@@ -76,15 +76,15 @@ final class Path
     }
 
     /**
-     * If the given path is a valid non-root Dropbox path, return <code>null</code>,
+     * If the given path is a valid non-root Dropbox path, return `null`,
      * otherwise return an English string error message describing what is wrong with the path.
-     * This is the same as {@link findError} except <code>"/"</code> will yield an error message.
+     * This is the same as {@link findError} except `"/"` will yield an error message.
      *
      * @param string $path
      *    The path you want to check for validity.
      *
      * @return string|null
-     *    If the path was valid, return <code>null</code>.  Otherwise, returns
+     *    If the path was valid, return `null`.  Otherwise, returns
      *    an English string describing the problem.
      */
     static function findErrorNonRoot($path)
@@ -106,8 +106,8 @@ final class Path
      *    The full path you want to get the last component of.
      *
      * @return null|string
-     *    The last component of <code>$path</code> or <code>null</code> if the given
-     *    <code>$path</code> was <code>"/"<code>.
+     *    The last component of `$path` or `null` if the given
+     *    `$path` was `"/"`.
      */
     static function getName($path)
     {

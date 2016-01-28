@@ -2,7 +2,7 @@
 namespace Dropbox;
 
 /**
- * Thrown by the <code>Host::loadFromJson</code> method if something goes wrong.
+ * Thrown by the `Host::loadFromJson` method if something goes wrong.
  */
 final class HostLoadException extends \Exception
 {
