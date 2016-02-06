@@ -86,7 +86,7 @@ function echoHelp($command) {
     echo "\n";
     echo "  {\n";
     echo "    \"key\": \"Your Dropbox API app key\",\n";
-    echo "    \"secret\": \"Your Dropbox API app secret\",\n";
+    echo "    \"secret\": \"Your Dropbox API app secret\"\n";
     echo "  }\n";
     echo "\n";
     echo "  Get an API app key by registering with Dropbox:\n";
