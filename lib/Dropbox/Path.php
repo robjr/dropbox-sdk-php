@@ -50,7 +50,7 @@ final class Path
      */
     static function findError($path)
     {
-        Checker::argString("path", $path);
+        Checker::argStringNonEmpty("path", $path);
 
         $matchResult = preg_match('%^(?:
                   [\x09\x0A\x0D\x20-\x7E]            # ASCII
@@ -64,7 +64,7 @@ final class Path
             return "must be valid UTF-8; BMP only, no surrogates, no U+FFFE or U+FFFF";
         }
 
-        if (\substr_compare($path, "/", 0, 1) !== 0) return "must start with \"/\"";
+        if ($path[0] !== "/") return "must start with \"/\"";
         $l = strlen($path);
         if ($l === 1) return null;  // Special case for "/"
 
@@ -111,9 +111,9 @@ final class Path
      */
     static function getName($path)
     {
-        Checker::argString("path", $path);
+        Checker::argStringNonEmpty("path", $path);
 
-        if (\substr_compare($path, "/", 0, 1) !== 0) {
+        if ($path[0] !== "/") {
             throw new \InvalidArgumentException("'path' must start with \"/\"");
         }
         $l = strlen($path);
