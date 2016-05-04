@@ -3,12 +3,41 @@ namespace Dropbox;
 
 class Util
 {
+    const SPECIAL_ESCAPE_IN  = "\r\n\t\\\"";
+    const SPECIAL_ESCAPE_OUT = "rnt\\\"";
+
     /**
-     * @internal
+     * Return a double-quoted version of the given string, using PHP-escape sequences
+     * for all non-printable and non-ASCII characters.
+     *
+     * @param string $string
+     *
+     * @return string
      */
-    public static function q($object)
+    public static function q($string)
     {
-        return var_export($object, true);
+        $r = "\"";
+        $len = \strlen($string);
+        for ($i = 0; $i < $len; $i++) {
+            $c = $string[$i];
+            $escape_i = \strpos(self::SPECIAL_ESCAPE_IN, $c);
+            if ($escape_i !== false) {
+                // Characters with a special escape code.
+                $r .= "\\";
+                $r .= self::SPECIAL_ESCAPE_OUT[$escape_i];
+            }
+            else if ($c >= "\x20" and $c <= "\x7e") {
+                // Printable characters.
+                $r .= $c;
+            }
+            else {
+                // Generic hex escape code.
+                $r .= "\\x";
+                $r .= \bin2hex($c);
+            }
+        }
+        $r .= "\"";
+        return $r;
     }
 
     /**

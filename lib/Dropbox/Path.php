@@ -138,7 +138,7 @@ final class Path
         if ($value === null) throw new \InvalidArgumentException("'$argName' must not be null");
         if (!is_string($value)) throw new \InvalidArgumentException("'$argName' must be a string");
         $error = self::findError($value);
-        if ($error !== null) throw new \InvalidArgumentException("'$argName'': bad path: $error: ".var_export($value, true));
+        if ($error !== null) throw new \InvalidArgumentException("'$argName'': bad path: $error: ".Util::q($value));
     }
 
     /**
@@ -166,6 +166,6 @@ final class Path
         if ($value === null) throw new \InvalidArgumentException("'$argName' must not be null");
         if (!is_string($value)) throw new \InvalidArgumentException("'$argName' must be a string");
         $error = self::findErrorNonRoot($value);
-        if ($error !== null) throw new \InvalidArgumentException("'$argName'': bad path: $error: ".var_export($value, true));
+        if ($error !== null) throw new \InvalidArgumentException("'$argName'': bad path: $error: ".Util::q($value));
     }
 }
