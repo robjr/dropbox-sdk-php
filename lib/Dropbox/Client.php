@@ -1143,7 +1143,7 @@ class Client
             throw new \InvalidArgumentException("Invalid 'format': ".Util::q($format));
         }
         if (!in_array($size, array("xs", "s", "m", "l", "xl"))) {
-            throw new \InvalidArgumentException("Invalid 'size': ".Util::q($format));
+            throw new \InvalidArgumentException("Invalid 'size': ".Util::q($size));
         }
 
         $url = $this->buildUrlForGetOrPut(
