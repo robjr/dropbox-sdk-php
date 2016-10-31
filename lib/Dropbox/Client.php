@@ -282,18 +282,16 @@ class Client
         // If $numBytes is large, we elect to use chunked upload.
         // In all other cases, use regular upload.
         if ($numBytes === null || $numBytes > self::$AUTO_CHUNKED_UPLOAD_THRESHOLD) {
-            $metadata = $this->_uploadFileChunked($path, $writeMode, $inStream, $numBytes,
+            return $this->_uploadFileChunked($path, $writeMode, $inStream, $numBytes,
                                                   self::$DEFAULT_CHUNK_SIZE);
-        } else {
-            $metadata = $this->_uploadFile($path, $writeMode,
-                function(Curl $curl) use ($inStream, $numBytes) {
-                    $curl->set(CURLOPT_PUT, true);
-                    $curl->set(CURLOPT_INFILE, $inStream);
-                    $curl->set(CURLOPT_INFILESIZE, $numBytes);
-                });
-        }
-
-        return $metadata;
+        } 
+    
+        return $this->_uploadFile($path, $writeMode,
+            function(Curl $curl) use ($inStream, $numBytes) {
+                $curl->set(CURLOPT_PUT, true);
+                $curl->set(CURLOPT_INFILE, $inStream);
+                $curl->set(CURLOPT_INFILESIZE, $numBytes);
+            });
     }
 
     /**
